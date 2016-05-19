@@ -1,19 +1,39 @@
+---
+layout: page
+title: "Blog"
+---
 
-
+{% for post in site.posts %}
+    {% if post.tags contains 'Post' %}
         <div class="post-preview">
-            <a href="/shaswatgupta.github.io/2016/05/19/bower-bootstrap.html">
+            <a href="{{ post.url | prepend: site.baseurl }}">
                 <h2 class="post-title">            
-                    Django GITHUB API tutorial
+                    {{ post.title }}
                 </h2>
-                
+                {% if post.subtitle %}
                 <h3 class="post-subtitle">
-                    Build a Django application from scratch using Twitter Bootstrap, Bower, Requests and the Github API.
+                    {{ post.subtitle }}
                 </h3>
-                
+                {% endif %}
             </a>
-            <p class="post-meta">Posted by Shaswat Gupta on July 16, 2015</p>
+            <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
         </div>
     <hr>
-    
-<!-- Pager -->
+    {% endif %}
+{% endfor %}
 
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
