@@ -1,0 +1,13 @@
+# Site settings
+title: Shaswat Gupta
+header-img: img/forest.jpg
+email: shagup770@gmail.com
+description: "3rd year Under Graduate Student in Information Technology at National Institute of Technology,Durgapur India"
+baseurl: ""
+url: "http://shaswatgupta.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 15
