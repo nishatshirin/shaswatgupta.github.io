@@ -14,3 +14,5 @@ paginate: 15
 
 # Gems
 gems: [jekyll-paginate]
+
+localhost: 8000
